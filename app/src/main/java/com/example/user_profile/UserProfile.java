@@ -43,6 +43,15 @@ public class UserProfile extends AppCompatActivity {
     int allergy_fold_flag = 0;
     public ArrayList<String> disability_array = new ArrayList<String>(Arrays.asList("1","0","0","0","1","Poor eyesight"));
     public ArrayList<String> allergy_array = new ArrayList<String>(Arrays.asList("1","0","1","0","1","Apple"));
+    String name = "user name";
+    String email = "user email";
+    String user_phone = "user phone";
+    String child_name = "bobby";
+    String age = "4";
+    String year = "2";
+    String em_contact = "emergency contact";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,20 +61,26 @@ public class UserProfile extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         user_name = findViewById(R.id.user_name);
+        user_name.setText(name);
         user_name.setEnabled(false);
         user_email = findViewById(R.id.user_email);
+        user_email.setText(email);
         user_email.setEnabled(false);
         user_phone_no = findViewById(R.id.user_phone_no);
         user_phone_no.setEnabled(false);
+        user_phone_no.setText(user_phone);
         children_name = findViewById(R.id.children_name);
         children_name.setEnabled(false);
+        children_name.setText(child_name);
         children_age = findViewById(R.id.children_age);
         children_age.setEnabled(false);
+        children_age.setText(age);
         contact_number = findViewById(R.id.contact_number);
         contact_number.setEnabled(false);
-
+        contact_number.setText(em_contact);
         children_year_group = findViewById(R.id.children_year_group);
         children_year_group.setEnabled(false);
+        children_year_group.setText(year);
 
         edit_button = findViewById(R.id.edit_button);
 
@@ -236,6 +251,7 @@ public class UserProfile extends AppCompatActivity {
                     children_age.setEnabled(true);
                     children_name.setEnabled(true);
                     children_year_group.setEnabled(true);
+                    contact_number.setEnabled(true);
                     edit_button.setText("Finish");
                     anxiety_cb.setEnabled(true);
                     autism_cb.setEnabled(true);
@@ -255,11 +271,19 @@ public class UserProfile extends AppCompatActivity {
                 else if(edit_flag == 1){
                     edit_flag = 0;
                     user_name.setEnabled(false);
+                    name = user_name.getText().toString();
                     user_email.setEnabled(false);
+                    email = user_email.getText().toString();
                     user_phone_no.setEnabled(false);
+                    user_phone = user_phone_no.getText().toString();
                     children_age.setEnabled(false);
+                    age = children_age.getText().toString();
                     children_name.setEnabled(false);
+                    child_name = children_name.getText().toString();
                     children_year_group.setEnabled(false);
+                    year = children_year_group.getText().toString();
+                    contact_number.setEnabled(false);
+                    em_contact = contact_number.getText().toString();
                     edit_button.setText("Edit");
                     if(anxiety_cb.isChecked()){
                         disability_array.set(0,"1");
